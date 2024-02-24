@@ -1,23 +1,15 @@
 import './App.css';
 import courses from './data/coursedata';
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import React, {useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
     const [courseStatus, setCourseStatus] = useState({});
 
     const handleCheckboxChange = (courseId) => {
         setCourseStatus((prevStatus) => {
-            const updatedStatus = { ...prevStatus, [courseId]: !prevStatus[courseId] };
-            // Update prerequisites status
-            courses.forEach(course => {
-                if (course.prereq_id && course.prereq_id === courseId) {
-                    const hasUnmetPrereqs = course.prereq_id && !updatedStatus[course.prereq_id];
-                    //updatedStatus[course.course_id] = !hasUnmetPrereqs;
-                }
-            });
-            return updatedStatus;
+            return {...prevStatus, [courseId]: !prevStatus[courseId]};
         });
     }
 
