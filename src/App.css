@@ -4,8 +4,8 @@
   --primary-color: #007bff;
   --hover-color: #1e4d80;
   --secondary-color: #ffc107;
-  --text-color: #333;
-  --background-color: #f5f5f5;
+  --text-color: #2a2a2a;
+  --background-color: #143a60;
 }
 body {
   font-family: Arial, sans-serif;
@@ -17,19 +17,18 @@ h1, h2, h3 {
 /* Overall container */
 .course-tile {
   font-family: sans-serif; /* Set a primary font */
-  border: 1px solid #ddd; /* Add a subtle border */
-  transition: box-shadow 0.2s ease; /* Smoother shadow effect */
+  transition: box-shadow .5s ease; /* Smoother shadow effect */
   background-color: var(--background-color);
   padding-left: 20px;
   border-radius: 25px;
   margin: 10px;
-  box-shadow: 5px 5px #dddddd;
+  box-shadow: -1px -1px 10px #131313;
 }
 .course-tile.unmet-prereq {
-  background-color: #ffdddd; /* Light red for unmet prerequisites */
+  background-color: #3f3f3f; /* Light red for unmet prerequisites */
 }
 .course-tile.checked {
-  background-color: #ecffdd; /* Light red for unmet prerequisites */
+  background-color: #14602f; /* Light red for unmet prerequisites */
 }
 .course-header p {
   margin-left: 30px;
@@ -59,41 +58,25 @@ h1, h2, h3 {
 
 /* Header */
 .course-header {
-  margin-bottom: 15px; /* Space between header and button */
   display: flex;
   align-items: center;
 }
 
 .course-header h1 {
   font-size: 1.5rem; /* Emphasize course ID */
-  margin-right: 10px; /* Space between course ID and title */
+  margin-right: 20px; /* Space between course ID and title */
 }
 
 .course-header h2 {
   font-weight: normal; /* Differentiate from h1 */
 }
 
-/* Button */
-/*.course-tile button {
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.course-tile button:hover {
-  background-color: var(--hover-color);
-}*/
-
 .dropdown-toggle {
   background-color: transparent; /* Remove default button background */
   border: none; /* Remove default button border */
   padding: 0; /* Remove default button padding */
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 1s ease;
 }
 
 .dropdown-toggle FontAwesomeIcon {
@@ -108,6 +91,7 @@ h1, h2, h3 {
 /* Details section */
 .course-details {
   padding: 15px;
+  width: 75%;
   /*border-top: 1px solid #ddd; /* Visual separator */
 }
 
@@ -117,7 +101,51 @@ h1, h2, h3 {
     flex-direction: column; /* Stack elements on smaller screens */
   }
 
-  .course-header h1 {
-    margin-bottom: 5px;
-  }
+}
+.instructor-card-list {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2a2a2a; /* Adjust as needed */
+  color:white;
+  padding: 10px;
+  z-index: 999; /* Ensure it's above other content */
+  box-shadow: 0px 2px 10px #131313;
+}
+.buttons {
+  margin-right: 40px;
+}
+
+.buttons button {
+  margin: 0 5px;
+  appearance: none;
+  flex:1;
+  background-color: #2a2a2a;
+  color: whitesmoke;
+  padding:10px;
+  border: none;
+  box-shadow: -1px -1px 2px black;
+}
+
+.course-list {
+  padding-top: 120px;
+}
+
+.rmp-links {
+  color: #ffc107;
+}
+
+.page{
+  background-color: #3f3f3f;
+  color:whitesmoke;
 }
