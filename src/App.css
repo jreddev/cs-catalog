@@ -36,7 +36,7 @@ h1, h2, h3 {
 }
 .course-header input[type="checkbox"] {
   margin-left: 5px; /* Space between checkbox and title */
-  /*appearance: none; !* Hide default checkbox appearance *!*/
+  appearance: none; /* Hide default checkbox appearance */
   width: 16px;
   height: 16px;
   background-color: #ddd; /* Set background color for unchecked state */
