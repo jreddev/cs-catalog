@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
+:root {
+  --primary-color: #007bff;
+  --hover-color: #1e4d80;
+  --secondary-color: #ffc107;
+  --text-color: #333;
+  --background-color: #f5f5f5;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+h1, h2, h3 {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+}
+/* Overall container */
+.course-tile {
+  font-family: sans-serif; /* Set a primary font */
+  border: 1px solid #ddd; /* Add a subtle border */
+  transition: box-shadow 0.2s ease; /* Smoother shadow effect */
+  background-color: var(--background-color);
+  padding-left: 20px;
+  border-radius: 25px;
+  margin: 10px;
+  box-shadow: 5px 5px #dddddd;
+}
+.course-tile.unmet-prereq {
+  background-color: #ffdddd; /* Light red for unmet prerequisites */
+}
+.course-tile.checked {
+  background-color: #ecffdd; /* Light red for unmet prerequisites */
+}
+.course-header p {
+  margin-left: 30px;
+}
+.course-header input[type="checkbox"] {
+  margin-left: 5px; /* Space between checkbox and title */
+  /*appearance: none; !* Hide default checkbox appearance *!*/
+  width: 16px;
+  height: 16px;
+  background-color: #ddd; /* Set background color for unchecked state */
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  float: right;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.course-header input[type="checkbox"]:checked {
+  /* Style the checkbox when checked */
+  background-color: var(--text-color); /* Change color on check */
+  border-color: var(--text-color); /* Update border color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.course-tile:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Highlight on hover */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header */
+.course-header {
+  margin-bottom: 15px; /* Space between header and button */
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.course-header h1 {
+  font-size: 1.5rem; /* Emphasize course ID */
+  margin-right: 10px; /* Space between course ID and title */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.course-header h2 {
+  font-weight: normal; /* Differentiate from h1 */
+}
+
+/* Button */
+/*.course-tile button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.course-tile button:hover {
+  background-color: var(--hover-color);
+}*/
+
+.dropdown-toggle {
+  background-color: transparent; /* Remove default button background */
+  border: none; /* Remove default button border */
+  padding: 0; /* Remove default button padding */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-toggle FontAwesomeIcon {
+  font-size: 1.2rem;
+  color: var(--text-color); /* Use your text color variable */
+}
+
+.course-details.open .dropdown-toggle i {
+  transform: translateY(-5px); /* Rotate arrow icon on open */
+}
+
+/* Details section */
+.course-details {
+  padding: 15px;
+  /*border-top: 1px solid #ddd; /* Visual separator */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .course-header {
+    flex-direction: column; /* Stack elements on smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  .course-header h1 {
+    margin-bottom: 5px;
   }
 }
