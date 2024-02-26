@@ -1,59 +1,80 @@
+/* Import external stylesheet */
 @import '@fortawesome/fontawesome-svg-core/styles.css';
 
+/* Define CSS variables */
 :root {
   --primary-color: #007bff;
   --hover-color: #1e4d80;
   --secondary-color: #ffc107;
   --text-color: #2a2a2a;
-  --background-color: #143a60;
+  --background-color: #dedede;
+  --shadow-color: #282828;
+  --available-color: #e39a04;
+  --completed-color: #659419;
+  --blocked-color: #8d0707;
 }
+
+/* Base styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Gill Sans MT", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
+
 h1, h2, h3 {
-  font-family: Roboto, sans-serif;
+  font-family: "Gill Sans MT", sans-serif;
   font-weight: bold;
 }
+
 /* Overall container */
 .course-tile {
-  font-family: sans-serif; /* Set a primary font */
-  transition: box-shadow .5s ease; /* Smoother shadow effect */
+  font-family: "Gill Sans MT", sans-serif;
+  transition: box-shadow .5s ease;
   background-color: var(--background-color);
+  color: #3f3f3f;
   padding-left: 20px;
-  border-radius: 25px;
-  margin: 10px;
-  box-shadow: -1px -1px 10px #131313;
+  border-radius: 20px;
+  margin: 30px;
+  box-shadow: -1px -1px 15px var(--available-color);
 }
+
 .course-tile.unmet-prereq {
-  background-color: #3f3f3f; /* Light red for unmet prerequisites */
+  box-shadow: -1px -1px 15px var(--blocked-color);
 }
+
 .course-tile.checked {
-  background-color: #14602f; /* Light red for unmet prerequisites */
+  box-shadow: -1px -1px 15px var(--completed-color);
 }
+
 .course-header p {
   margin-left: 30px;
 }
+
+.course-header p {
+  position: absolute;
+  top: 10px;
+  right: 150px
+}
+
 .course-header input[type="checkbox"] {
-  margin-left: 5px; /* Space between checkbox and title */
-  appearance: none; /* Hide default checkbox appearance */
+  margin-left: 5px;
+  appearance: none;
   width: 16px;
   height: 16px;
-  background-color: #ddd; /* Set background color for unchecked state */
-  border: 1px solid #ccc;
+  background-color: #c9c9c9;
+  border: 2px solid #b6b6b6;
   border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   float: right;
+  position: absolute;
+  top: 25px;
+  right: 120px
 }
 
 .course-header input[type="checkbox"]:checked {
-  /* Style the checkbox when checked */
-  background-color: var(--text-color); /* Change color on check */
-  border-color: var(--text-color); /* Update border color */
-}
-
-.course-tile:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Highlight on hover */
+  background-color: var(--text-color);
+  border-color: var(--text-color);
 }
 
 /* Header */
@@ -62,90 +83,123 @@ h1, h2, h3 {
   align-items: center;
 }
 
+.course-tile{
+  position: relative;
+}
+
+.status-icon {
+  padding: 5px 10px;
+  border-radius: 10px;
+  position: absolute;
+  top:20px;
+  right:20px;
+  color: white;
+}
+
 .course-header h1 {
-  font-size: 1.5rem; /* Emphasize course ID */
-  margin-right: 20px; /* Space between course ID and title */
+  font-size: 1.5rem;
+  margin-right: 20px;
 }
 
 .course-header h2 {
-  font-weight: normal; /* Differentiate from h1 */
+  font-weight: normal;
+}
+
+.credits {
+  text-align: center;
+  background-color: #eeeeee;
+  padding: 5px;
+  margin: 0px;
+  width: 70px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  height: 20px;
 }
 
 .dropdown-toggle {
-  background-color: transparent; /* Remove default button background */
-  border: none; /* Remove default button border */
-  padding: 0; /* Remove default button padding */
+  background-color: transparent;
+  border: none;
+  padding: 10px;
   cursor: pointer;
   transition: transform 1s ease;
 }
 
 .dropdown-toggle FontAwesomeIcon {
   font-size: 1.2rem;
-  color: var(--text-color); /* Use your text color variable */
+  color: var(--text-color);
 }
 
 .course-details.open .dropdown-toggle i {
-  transform: translateY(-5px); /* Rotate arrow icon on open */
+  transform: translateY(-5px);
 }
 
 /* Details section */
 .course-details {
-  padding: 15px;
+  padding-left: 20px;
+  padding-bottom: 20px;
   width: 75%;
-  /*border-top: 1px solid #ddd; /* Visual separator */
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
   .course-header {
-    flex-direction: column; /* Stack elements on smaller screens */
+    flex-direction: column;
   }
-
 }
+
+/* Instructor card list */
 .instructor-card-list {
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  grid-gap: 12px;
+  grid-gap: 1px;
 }
 
+/* Header */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  font-family: "Gill Sans MT", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 slots */
+  justify-items: center; /* Align items horizontally to the center */
+  align-items: center; /* Align items vertically to the center */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #2a2a2a; /* Adjust as needed */
-  color:white;
-  padding: 10px;
-  z-index: 999; /* Ensure it's above other content */
-  box-shadow: 0px 2px 10px #131313;
+  background-color: black;
+  color: white;
+  padding: 1px;
+  z-index: 1000;
+  box-shadow: 0px 0px 3px var(--background-color);
 }
+
 .buttons {
-  margin-right: 40px;
+  grid-column: span 2; /* Takes 3 out of 5 slots */
 }
 
 .buttons button {
   margin: 0 5px;
   appearance: none;
-  flex:1;
-  background-color: #2a2a2a;
+  flex: 1;
+  background-color: black;
   color: whitesmoke;
-  padding:10px;
+  padding: 20px;
   border: none;
-  box-shadow: -1px -1px 2px black;
 }
 
+/* Course list */
 .course-list {
   padding-top: 120px;
 }
 
+/* RapidMiner links */
 .rmp-links {
   color: #ffc107;
 }
 
-.page{
-  background-color: #3f3f3f;
-  color:whitesmoke;
+/* Page background */
+.page {
+  background-color: #e7e7e7;
+  color: whitesmoke;
 }

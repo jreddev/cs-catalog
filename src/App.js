@@ -7,10 +7,12 @@ import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 const Header = ({ collapseAllDropdowns, expandAllDropdowns, uncheckAllCheckboxes, checkDefaultCourses }) => {
     return (
         <header className="header">
-            <h1>CS Course Catalog</h1>
             <div className="buttons">
                 <button onClick={collapseAllDropdowns}>Collapse All</button>
                 <button onClick={expandAllDropdowns}>Expand All</button>
+            </div>
+            <h1>CS Course Catalog</h1>
+            <div className="buttons">
                 <button onClick={uncheckAllCheckboxes}>Uncheck All</button>
                 <button onClick={checkDefaultCourses}>Default User</button>
             </div>
@@ -97,6 +99,8 @@ const App = () => {
 const CourseList = ({course, isChecked, onCheckboxChange, courseStatus, isOpen, toggleDropdown}) => {
     const filtered_title = course.title.replace(/^C S \d+:/, "");
     const hasUnmetPrereqs = course.prereq_id && !courseStatus[course.prereq_id];
+    const statusText = hasUnmetPrereqs ? "Blocked" : isChecked ? "Completed" : "Available";
+    const statusColor = hasUnmetPrereqs ? "#8d0707" : isChecked ? "#659419" : "#e39a04";
 
     return (
         <div className={`course-tile ${hasUnmetPrereqs ? 'unmet-prereq' : isChecked ? 'checked' : ''}`}>
@@ -109,8 +113,10 @@ const CourseList = ({course, isChecked, onCheckboxChange, courseStatus, isOpen, 
                     checked={isChecked}
                     onChange={() => onCheckboxChange(course.course_id)}
                 />
+                <div className="status-icon" style={{backgroundColor: statusColor}}>
+                    {statusText}
+                </div>
             </div>
-            <p>Credits: {course.credits}</p>
             <button
                 type="button"
                 onClick={() => toggleDropdown(course.course_id)}
@@ -120,6 +126,7 @@ const CourseList = ({course, isChecked, onCheckboxChange, courseStatus, isOpen, 
             </button>
             {isOpen && (
                 <div className="course-details">
+                    <p><strong>Credits:</strong> {course.credits}</p>
                     <h4>Description</h4>
                     <p>{course.course_description}</p>
                     <h4>Professors & Ratings:</h4>
