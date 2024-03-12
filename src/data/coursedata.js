@@ -5,7 +5,8 @@ const courses = [
        course_description:"Introduction to object-oriented program design and development.  Principles of algorithm formulation and implementation.",
        credits:3,
        prereq_id:null,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Angela",
@@ -35,7 +36,8 @@ const courses = [
         course_description:"Fundamental data structures and algorithms of computer science; basic algorithm analysis; recursion; sorting and searching; lists, stacks, queues, trees, hashing; object-oriented data abstraction.",
         credits:3,
         prereq_id:142,
-       note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Gordon",
@@ -60,7 +62,8 @@ const courses = [
        course_description:"How a computer works to execute sequential code:low level data representation and abstraction, the relationship between C and assembly, computer architecture and pipelining, the memory hierarchy, dynamic memory allocation, and linking.",
        credits:3,
        prereq_id:235,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Christopher",
@@ -81,7 +84,8 @@ const courses = [
        course_description:"Introduction to grammars and parsing; predicate and propositional logic; proof techniques; sets, functions, relations, relational data model; graphs and graph algorithms.",
        credits:3,
        prereq_id:235,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Cory",
@@ -96,7 +100,8 @@ const courses = [
        course_description:"Advanced software development with an object-oriented focus. Design, implementation, and testing of medium-sized programs including a server program.",
        credits:4,
        prereq_id:235,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Kenneth",
@@ -116,7 +121,8 @@ const courses = [
        course_description:"Finite state automata, regular languages, lexical analysis; push-down automata, context-free languages, parsing; Turing machines and unrestricted grammars; computability complexity, NP-completeness.",
        credits:3,
        prereq_id:236,
-       note:"concurrent enrollment in 236",
+        category:[],
+        note:"concurrent enrollment in 236",
         instructors: [
             {
                 first_name: "Dennis",
@@ -131,7 +137,8 @@ const courses = [
        course_description:"Introduction to designing the user experience. Students learn good interviewing techniques, how to develop low fidelity prototypes on paper, and how to create basic high fidelity prototypes in Figma.",
        credits:3,
        prereq_id:142,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Amanda",
@@ -146,7 +153,8 @@ const courses = [
        course_description:"Introduction to web application design and implementation. Both front end and back end development with an emphasis on REST architectures.",
        credits:3,
        prereq_id:142,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Lee",
@@ -161,7 +169,8 @@ const courses = [
        course_description:"A study of the design and analysis of algorithms as solutions to problems, including dynamic programming, linear programming, greedy algorithms, divide-and-conquer algorithms, graph algorithms, and intelligent search algorithms.",
        credits:3,
        prereq_id:236,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "David",
@@ -181,7 +190,8 @@ const courses = [
        course_description:"Systems programming principles and concepts, including Linux systems programming, multiprocessing, concurrency, exceptional control flow, caching, sockets, protocols, and non-blocking I/O.",
        credits:3,
        prereq_id:224,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Kent",
@@ -196,7 +206,8 @@ const courses = [
        course_description:"Fundamental challenge of software quality through the entire software product life-cycle. Sound engineering principles to ensure and assure quality at each stage of the life-cycle with an emphasis in early stages on testing techniques, dynamic and static program analysis, and formal verification for high assurance systems. Practical application to software artifacts and algorithm implementation connects the course material to real world application in the field.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Eric",
@@ -211,7 +222,8 @@ const courses = [
        course_description:"Principles and concepts characterizing high-level computer programming languages, process and data abstration, encapsulation, inheritance, functional programming, logic programming, scanners, and parsers.",
        credits:3,
        prereq_id:236,
-       note:"CS 236 + CS 260 or CS 224 + CS 236 or CS 235 + MATH 290"
+        category:[],
+        note:"CS 236 + CS 260 or CS 224 + CS 236 or CS 235 + MATH 290"
         ,
         instructors: [
             {
@@ -227,7 +239,8 @@ const courses = [
        course_description:"Use design, development, testing and refactoring techniques to build and evolve reliable, maintainable and scalable software systems. Covers a wide range of design patterns and principles. Also introduces students to software architecture and architectural patterns.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Jerod",
@@ -247,7 +260,8 @@ const courses = [
        course_description:"Principles and concepts of operating systems design and the implementation of an operating system.",
        credits:3,
        prereq_id:224,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "",
@@ -262,7 +276,8 @@ const courses = [
        course_description:"Introduces basic concepts of computer graphics and image processing. Includes characteristics of physical cameras and displays; color models; basic image processing algorithms:2D and 3D homogeneous coordinate transformations; fundamentals of 3D rendering geometry; lighting and shading:image warping and texture mapping; and frequency-domain processing.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "",
@@ -277,7 +292,8 @@ const courses = [
        course_description:"This class combines designing the user experience with implementing the technology. Students learn website design, information architecture, and how to design for the broader ecosystem of use. Finally, students will learn principles specifically relevant to website design and information architecture. Web design is one of the most common UX jobs and so this makes their skills highly marketable.",
        credits:3,
        prereq_id:256,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
                 first_name: "Michael",
@@ -292,7 +308,8 @@ const courses = [
        course_description:"Undergraduate level subjects as announced before each semester.",
        credits:3,
        prereq_id:142,
-       note:"Instructor's consent"
+        category:[],
+        note:"Instructor's consent"
         ,
         instructors: [
             {
@@ -313,7 +330,8 @@ const courses = [
        course_description:"Societal impact of computer technology, the computer scientist's place in society, ethical issues.  Reading, discussion, and writing seminar.",
        credits:2,
        prereq_id:240,
-       note:"WRTG 316",
+        category:[],
+        note:"WRTG 316",
         instructors: [
             {
                 first_name: "Darin",
@@ -328,7 +346,8 @@ const courses = [
        course_description:"Entrepreneurship, idea/opportunity generation, strategic planning, legal organization, product development, marketing/sales, customer support, fund raising, and effective management.",
        credits:3,
        prereq_id:240,
-       note:"WRTG 316",
+       category:[],
+        note:"WRTG 316",
         instructors: [
             {
                 first_name: "Craig",
@@ -348,27 +367,13 @@ const courses = [
        course_description:"Optimization, problem formulation, and solution algorithms, including simplex and interior point methods.  Applications from control, data mining, finance, game theory, learning, network flow, operations research, and statistical estimation.",
        credits:3,
        prereq_id:142,
-       note:"MATH 213 + MATH 215",
+       category:[],
+        note:"MATH 213 + MATH 215",
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Sean",
+                last_name: "Warnick",
+                rmp_link: "https://www.ratemyprofessors.com/professor/712633"
             }
         ]
     },
@@ -378,57 +383,13 @@ const courses = [
        course_description:"Analysis, design, implementation, and testing of significant software systems.",
        credits:3,
        prereq_id:340,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            }
-        ]
-    },
-    {
-       course_id:431,
-       title:"C S 431:Algorithmic Languages and Compilers",
-       course_description:"Formal description of algorithmic languages and techniques used in their compilation: semantics, ambiguities, procedures, replication, iteration, recursion.",
-       credits:3,
-       prereq_id:340,
-      note:null,
-        instructors: [
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Bruce",
+                last_name: "Webster",
+                rmp_link: "https://www.ratemyprofessors.com/professor/2418703"
             }
         ]
     },
@@ -438,27 +399,13 @@ const courses = [
        course_description:"Introduction to fundamental concepts and algorithms of computer vision, including feature extraction, detection, segmentation, registration, recognition, motion, 3D vision, and image understanding. Applies techniques from image processing, geometry, Bayesian methods, optimization, and machine learning to computer vision problems.",
        credits:3,
        prereq_id:312,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Onda",
+                last_name: "Suguru",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -468,27 +415,13 @@ const courses = [
        course_description:"Database models: relational, deductive, object-oriented.  Integrity constraints, query languages, database design.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Mike",
+                last_name: "Reynolds",
+                rmp_link: "https://www.ratemyprofessors.com/professor/2902545"
             }
         ]
     },
@@ -498,27 +431,13 @@ const courses = [
        course_description:"Concepts and terminology of information retrieval (IR) systems.  Design methodologies and issues.  Fundamental IR models examined: Boolean, Vector Space, Probabilistic models, and evaluation strategies.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Professor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -528,27 +447,13 @@ const courses = [
        course_description:"Interactive computer graphics systems programming and architecture.",
        credits:3,
        prereq_id:355,
-       note:"MATH 213",
+        category:[],
+        note:"MATH 213",
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Parris",
+                last_name: "Egbert",
+                rmp_link: "https://www.ratemyprofessors.com/professor/381232"
             }
         ]
     },
@@ -558,27 +463,13 @@ const courses = [
        course_description:"Iterative user experience design for mobile and ubiquitous computing with an emphasis on conceptualization and prototyping in specific contexts. Complete an open-ended project from initial design through functional prototype, with design and critique sessions.",
        credits:3,
        prereq_id:356,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Laura",
+                last_name: "Dahl",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -588,27 +479,13 @@ const courses = [
        course_description:"Introduction to data communications and computer networking.  Communications fundamentals, computer networks, software, architecture, telecommunications, regulation, standards.",
        credits:3,
        prereq_id:324,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -618,27 +495,13 @@ const courses = [
        course_description:"Principles and concepts of designing and building distributed systems.  Introduction to architectures for distributed computation.  Reliability, availability, and scalability of large applications.  Cloud computing and APIs.",
        credits:3,
        prereq_id:324,
-       note:"or equivalent experience",
+       category:[],
+        note:"or equivalent experience",
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -648,27 +511,13 @@ const courses = [
        course_description:"Introduction to computer security fundamentals:confidentiality, integrity, authentication, and access control. Secret key and public key cryptography, network security protocols, viruses, and fire walls.",
        credits:3,
        prereq_id:324,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Daniel",
+                last_name: "Zappala",
+                rmp_link: "https://www.ratemyprofessors.com/professor/575675"
             }
         ]
     },
@@ -678,27 +527,13 @@ const courses = [
        course_description:"Introduction to core areas of artifical intelligence; intelligent agents, problem solving and search, knowledge-based systems and inference, planning, uncertainty, learning, and perception.",
        credits:3,
        prereq_id:312,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Ethan",
+                last_name: "Pedersen",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -708,27 +543,13 @@ const courses = [
        course_description:"Machine learning models and other mechanisms allowing computers to learn and find knowledge from data.",
        credits:3,
        prereq_id:312,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -738,27 +559,13 @@ const courses = [
        course_description:"Theory and practice of modern deep learning and associated software frameworks. A broad look at the field, drawing on material from machine vision, machine translation,  dynamical systems, audio processing, neural computing and human perception. Supporting mathematical concepts are also covered, including linear algebra, stochastic optimization, and hardware acceleration.",
        credits:3,
        prereq_id:312,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Dan",
+                last_name: "Ventura",
+                rmp_link: "https://www.ratemyprofessors.com/professor/735631"
             }
         ]
     },
@@ -768,27 +575,13 @@ const courses = [
        course_description:"Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, implement, test, and demonstrate a major project.",
        credits:3,
        prereq_id:329,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Kenneth",
+                last_name: "Rodham",
+                rmp_link: "https://www.ratemyprofessors.com/professor/436178"
             }
         ]
     },
@@ -798,27 +591,13 @@ const courses = [
        course_description:"Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, implement, test, and demonstrate a major project.",
        credits:3,
        prereq_id:480,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Kenneth",
+                last_name: "Rodham",
+                rmp_link: "https://www.ratemyprofessors.com/professor/436178"
             }
         ]
     },
@@ -828,27 +607,13 @@ const courses = [
        course_description:"Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, implement, test, and demonstrate a major project.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -858,27 +623,13 @@ const courses = [
        course_description:"Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, implement, test, and demonstrate a major project.",
        credits:3,
        prereq_id:482,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Quinn",
+                last_name: "Snell",
+                rmp_link: "https://www.ratemyprofessors.com/professor/789187"
             }
         ]
     },
@@ -888,27 +639,13 @@ const courses = [
        course_description:"Foundational topics in verification and validation; the application of logic to building correct systems. Covers logics to formally specify properties of systems, verifications of basic systems, and advanced topics in formal verification for complex systems.",
        credits:3,
        prereq_id:312,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Eric",
+                last_name: "Mercer",
+                rmp_link: "https://www.ratemyprofessors.com/professor/169751"
             }
         ]
     },
@@ -918,27 +655,13 @@ const courses = [
        course_description:"Students work in teams to prepare for and compete in computer science competitions in areas such as programming, data science, and ethical hacking.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Ryan",
+                last_name: "Farrell",
+                rmp_link: "https://www.ratemyprofessors.com/professor/1884814"
             }
         ]
     },
@@ -948,27 +671,13 @@ const courses = [
        course_description:"Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, test, and demonstrate a major project.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -978,27 +687,13 @@ const courses = [
        course_description:"The second semester of a culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, test, and demonstrate a major project.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -1008,27 +703,13 @@ const courses = [
        course_description:"Students receive course credit for doing undergraduate research under the supervision of a faculty mentor.",
        credits:3,
        prereq_id:240,
-       note:"Students must turn in signed research agreement at least 1 business day before add/drop deadline in order to receive permission-to-add code.",
+       category:[],
+        note:"Students must turn in signed research agreement at least 1 business day before add/drop deadline in order to receive permission-to-add code.",
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Daniel",
+                last_name: "Zappala",
+                rmp_link: "https://www.ratemyprofessors.com/professor/575675"
             }
         ]
     },
@@ -1038,27 +719,18 @@ const courses = [
        course_description:"Students identify an interesting problem in computer science and solve it with the aid of faculty members.",
        credits:3,
        prereq_id:240,
-      note:null,
+        category:[],
+        note:null,
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Daniel",
+                last_name: "Zappala",
+                rmp_link: "https://www.ratemyprofessors.com/professor/575675"
             },
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Gentry",
+                last_name: "Davies",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -1068,27 +740,13 @@ const courses = [
        course_description:"Advanced undergraduate- and graduate-level subjects as announced before each semester.",
        credits:3,
        prereq_id:240,
-       note:"Instructor's consent",
+       category:[],
+        note:"Instructor's consent",
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Staff",
+                last_name: "Instructor",
+                rmp_link: "https://www.ratemyprofessors.com/school/135"
             }
         ]
     },
@@ -1098,27 +756,13 @@ const courses = [
        course_description:"Introduction to the analysis and design of feedback systems guaranteed to perform well in spite of model uncertainty.",
        credits:3,
        prereq_id:240,
-       note:"MATH 213 + MATH 215",
+       category:[],
+        note:"MATH 213 + MATH 215",
         instructors: [
             {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
-            },
-            {
-                first_name: "",
-                last_name: "",
-                rmp_link: ""
+                first_name: "Sean",
+                last_name: "Warnick",
+                rmp_link: "https://www.ratemyprofessors.com/professor/712633"
             }
         ]
     }
