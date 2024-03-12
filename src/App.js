@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import {Table, TableRow, TableCell, TableBody, Modal, Button, TableHead} from '@mui/material';
+import { Table, TableHead, TableRow, TableCell, TableBody, Modal, Button } from '@mui/material';
 import courses from './data/coursedata';
+import './App.css';
+
 
 const Header = ({ uncheckAllCheckboxes, checkDefaultCourses }) => {
     return (
@@ -56,9 +58,9 @@ const App = () => {
                     <TableRow>
                         <TableCell>Course ID</TableCell>
                         <TableCell>Title</TableCell>
+                        <TableCell>Credits</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell>Checkbox</TableCell>
-                        <TableCell>Credits</TableCell> {/* Added Table Header for Credits */}
+                        <TableCell>Completed</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -66,7 +68,8 @@ const App = () => {
                         <TableRow key={course.course_id} onClick={() => handleRowClick(course)}>
                             <TableCell>CS {course.course_id}</TableCell>
                             <TableCell>{course.title.replace(/^C S \d+:/, '')}</TableCell>
-                            <TableCell>
+                            <TableCell className = "middle">{course.credits}</TableCell>
+                            <TableCell className = 'middle'>
                                 <div
                                     className="status-icon"
                                     style={{
@@ -80,13 +83,13 @@ const App = () => {
                                 <input
                                     type="checkbox"
                                     checked={courseStatus[course.course_id] || false}
+                                    disabled={getStatusText(course, courseStatus) === 'Blocked'}
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         handleCheckboxChange(course.course_id);
                                     }}
                                 />
                             </TableCell>
-                            <TableCell>{course.credits}</TableCell> {/* New column for Credits */}
                         </TableRow>
                     ))}
                 </TableBody>
@@ -95,6 +98,9 @@ const App = () => {
                 <Modal open={true} onClose={closeModal} aria-labelledby="modal-title" centered>
                     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px' }}>
                         <h2 id="modal-title">Course Details</h2>
+                        <p>
+                            <strong>Credits:</strong> {modalData.credits}
+                        </p>
                         <h4>Description</h4>
                         <p>{modalData.course_description}</p>
                         <h4>Professors & Ratings:</h4>
