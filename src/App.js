@@ -1,16 +1,10 @@
-import './App.css';
+import React, { useState } from 'react';
+import {Table, TableRow, TableCell, TableBody, Modal, Button, TableHead} from '@mui/material';
 import courses from './data/coursedata';
-import React, {useEffect, useState} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ collapseAllDropdowns, expandAllDropdowns, uncheckAllCheckboxes, checkDefaultCourses }) => {
+const Header = ({ uncheckAllCheckboxes, checkDefaultCourses }) => {
     return (
         <header className="header">
-            <div className="buttons">
-                <button onClick={collapseAllDropdowns}>Collapse All</button>
-                <button onClick={expandAllDropdowns}>Expand All</button>
-            </div>
             <h1>CS Course Catalog</h1>
             <div className="buttons">
                 <button onClick={uncheckAllCheckboxes}>Uncheck All</button>
@@ -21,138 +15,128 @@ const Header = ({ collapseAllDropdowns, expandAllDropdowns, uncheckAllCheckboxes
 };
 
 const App = () => {
+    const [modalData, setModalData] = useState(null);
     const [courseStatus, setCourseStatus] = useState({});
-    const [allDropdownsOpen, setAllDropdownsOpen] = useState(false);
-    const [individualDropdownsOpen, setIndividualDropdownsOpen] = useState({});
 
-    useEffect(() => {
-        if (allDropdownsOpen) {
-            // If all dropdowns are open, set individual dropdowns open state accordingly
-            const dropdownsState = {};
-            courses.forEach((course) => {
-                dropdownsState[course.course_id] = true;
-            });
-            setIndividualDropdownsOpen(dropdownsState);
-        } else {
-            // If all dropdowns are collapsed, close all individual dropdowns
-            setIndividualDropdownsOpen({});
-        }
-    }, [allDropdownsOpen]);
+    const handleRowClick = (course) => {
+        setModalData(course);
+    };
+
+    const closeModal = () => {
+        setModalData(null);
+    };
 
     const handleCheckboxChange = (courseId) => {
         setCourseStatus((prevStatus) => {
-            return {...prevStatus, [courseId]: !prevStatus[courseId]};
+            return { ...prevStatus, [courseId]: !prevStatus[courseId] };
         });
-    }
-    const collapseAllDropdowns = () => {
-        setAllDropdownsOpen(false);
-        setIndividualDropdownsOpen({});
     };
-    const expandAllDropdowns = () => {
-        setAllDropdownsOpen(true);
-        setIndividualDropdownsOpen({});
-    };
+
     const uncheckAllCheckboxes = () => {
         setCourseStatus({});
     };
 
     const checkDefaultCourses = () => {
-        const defaultCourseIds = [142,235,224,236,240,260];
-        const defaultCourseStatus = defaultCourseIds.reduce((acc,courseId) => {
+        const defaultCourseIds = [142, 235, 224, 236, 240, 260];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
             acc[courseId] = true;
             return acc;
-        },{});
+        }, {});
         setCourseStatus(defaultCourseStatus);
-    }
-    const toggleDropdown = (courseId) => {
-        setIndividualDropdownsOpen((prevState) => ({
-            ...prevState,
-            [courseId]: !prevState[courseId],
-        }));
     };
 
     return (
         <div className="page">
             <Header
-                collapseAllDropdowns={collapseAllDropdowns}
-                expandAllDropdowns={expandAllDropdowns}
                 uncheckAllCheckboxes={uncheckAllCheckboxes}
                 checkDefaultCourses={checkDefaultCourses}
             />
-            <div className="course-list">
-                {courses.map((course) => (
-                    <CourseList
-                        key={course.course_id}
-                        course={course}
-                        isChecked={courseStatus[course.course_id] || false}
-                        onCheckboxChange={handleCheckboxChange}
-                        courseStatus={courseStatus}
-                        isOpen={individualDropdownsOpen[course.course_id] || false}
-                        toggleDropdown={toggleDropdown}
-                    />
-                ))}
-            </div>
-        </div>
-    );
-}
-
-const CourseList = ({course, isChecked, onCheckboxChange, courseStatus, isOpen, toggleDropdown}) => {
-    const filtered_title = course.title.replace(/^C S \d+:/, "");
-    const hasUnmetPrereqs = course.prereq_id && !courseStatus[course.prereq_id];
-    const statusText = hasUnmetPrereqs ? "Blocked" : isChecked ? "Completed" : "Available";
-    const statusColor = hasUnmetPrereqs ? "#8d0707" : isChecked ? "#659419" : "#e39a04";
-
-    return (
-        <div className={`course-tile ${hasUnmetPrereqs ? 'unmet-prereq' : isChecked ? 'checked' : ''}`}>
-            <div className="course-header">
-                <h1>CS {course.course_id}</h1>
-                <h2>{filtered_title}</h2>
-                <p>completed:</p>
-                <input
-                    type="checkbox"
-                    checked={isChecked}
-                    onChange={() => onCheckboxChange(course.course_id)}
-                />
-                <div className="status-icon" style={{backgroundColor: statusColor}}>
-                    {statusText}
-                </div>
-            </div>
-            <button
-                type="button"
-                onClick={() => toggleDropdown(course.course_id)}
-                className="dropdown-toggle"
-            >
-                <FontAwesomeIcon icon={faAngleDown} />
-            </button>
-            {isOpen && (
-                <div className="course-details">
-                    <p><strong>Credits:</strong> {course.credits}</p>
-                    <h4>Description</h4>
-                    <p>{course.course_description}</p>
-                    <h4>Professors & Ratings:</h4>
-                    <div className="professor-details">
-                        <InstructorCardList instructors={course.instructors}/>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Course ID</TableCell>
+                        <TableCell>Title</TableCell>
+                        <TableCell>Status</TableCell>
+                        <TableCell>Checkbox</TableCell>
+                        <TableCell>Credits</TableCell> {/* Added Table Header for Credits */}
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {courses.map((course) => (
+                        <TableRow key={course.course_id} onClick={() => handleRowClick(course)}>
+                            <TableCell>CS {course.course_id}</TableCell>
+                            <TableCell>{course.title.replace(/^C S \d+:/, '')}</TableCell>
+                            <TableCell>
+                                <div
+                                    className="status-icon"
+                                    style={{
+                                        backgroundColor: getStatusColor(course, courseStatus),
+                                    }}
+                                >
+                                    {getStatusText(course, courseStatus)}
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <input
+                                    type="checkbox"
+                                    checked={courseStatus[course.course_id] || false}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleCheckboxChange(course.course_id);
+                                    }}
+                                />
+                            </TableCell>
+                            <TableCell>{course.credits}</TableCell> {/* New column for Credits */}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+            {modalData && (
+                <Modal open={true} onClose={closeModal} aria-labelledby="modal-title" centered>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px' }}>
+                        <h2 id="modal-title">Course Details</h2>
+                        <h4>Description</h4>
+                        <p>{modalData.course_description}</p>
+                        <h4>Professors & Ratings:</h4>
+                        <InstructorCardList instructors={modalData.instructors} />
+                        <Button variant="contained" onClick={closeModal}>Close</Button>
                     </div>
-                </div>
+                </Modal>
             )}
         </div>
     );
 };
 
-const InstructorCardList = ({instructors}) => {
-   return (
-       <div className="instructor-card-list">
-           {instructors.map(instructor => (
-               <InstructorCard instructor={instructor}/>
-           ))}
-       </div>
-   );
+const getStatusColor = (course, courseStatus) => {
+    if (course.prereq_id && !courseStatus[course.prereq_id]) {
+        return '#8d0707'; // Blocked color
+    }
+    return courseStatus[course.course_id] ? '#659419' : '#e39a04'; // Completed or Available color
 };
 
-const InstructorCard = ({instructor}) => {
+const getStatusText = (course, courseStatus) => {
+    if (course.prereq_id && !courseStatus[course.prereq_id]) {
+        return 'Blocked'; // Prerequisites not met
+    }
+    return courseStatus[course.course_id] ? 'Completed' : 'Available'; // Completed or Available status
+};
+
+const InstructorCardList = ({ instructors }) => {
+    return (
+        <div className="instructor-card-list">
+            {instructors.map((instructor, index) => (
+                <InstructorCard key={index} instructor={instructor} />
+            ))}
+        </div>
+    );
+};
+
+const InstructorCard = ({ instructor }) => {
     return (
         <div className="rmp-links">
-            <a href={instructor.rmp_link} rel="noreferrer" target="_blank">{instructor.first_name} {instructor.last_name}</a>
+            <a href={instructor.rmp_link} rel="noreferrer" target="_blank">
+                {instructor.first_name} {instructor.last_name}
+            </a>
         </div>
     );
 };
