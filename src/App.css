@@ -1,7 +1,7 @@
+
 /* Global styles */
 .page {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .header {
@@ -11,6 +11,7 @@
   padding: 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #bbbbbb;
+  color: #232323;
 }
 
 /* Table styles */
@@ -126,6 +127,19 @@
   color: slategray;
   text-align: left;
   width: max-content;
+}
+
+.byu-logo-image {
+  height: 28px;
+}
+
+.logo-and-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-and-title > * {
+  margin-right: 30px; /* Adjust this value to your preference */
 }
 
 

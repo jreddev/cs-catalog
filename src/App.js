@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Table, TableHead, TableRow, TableCell, TableBody, Modal, Button, Drawer} from '@mui/material';
 import courses from './data/coursedata';
 import './App.css';
+import logo from './images/byu-logo.svg'
 
 const Header = ({ uncheckAllCheckboxes, setFreshman2, setSophmore1, setSophmore2, setJunior1, setJunior2, setSenior1, setSenior2 }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -12,11 +13,14 @@ const Header = ({ uncheckAllCheckboxes, setFreshman2, setSophmore1, setSophmore2
 
     return (
         <header className="header">
-            <h1>CS Course Catalog</h1>
+            <div className="logo-and-title">
+                <img className="byu-logo-image" alt="BYU" src="https://cpaacademy.s3.amazonaws.com/images/companylogos/byu-logo-blue.png"/>
+                <h1>CS Course Catalog</h1>
+            </div>
             <div className="menu">
                 <button className="menu-icon" onClick={toggleDrawer}>&#9776;</button>
             </div>
-            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer} className = 'drawer'>
+            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer} className='drawer'>
                 <div className="drawer-content">
                     <h3>Semester Presets</h3>
                     <Button variant="text" onClick={uncheckAllCheckboxes}>Freshman | 1st Semester</Button>
