@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/cs-catalog/static/css/main.a06c9c0b.css",
-    "main.js": "/cs-catalog/static/js/main.8a47b735.js",
+    "main.css": "/cs-catalog/static/css/main.bb955160.css",
+    "main.js": "/cs-catalog/static/js/main.fab9dcae.js",
     "static/js/453.1e171964.chunk.js": "/cs-catalog/static/js/453.1e171964.chunk.js",
+    "static/media/byu-logo.svg": "/cs-catalog/static/media/byu-logo.2ad2e29be27c74f21b5ba61c92914406.svg",
     "index.html": "/cs-catalog/index.html",
-    "main.a06c9c0b.css.map": "/cs-catalog/static/css/main.a06c9c0b.css.map",
-    "main.8a47b735.js.map": "/cs-catalog/static/js/main.8a47b735.js.map",
+    "main.bb955160.css.map": "/cs-catalog/static/css/main.bb955160.css.map",
+    "main.fab9dcae.js.map": "/cs-catalog/static/js/main.fab9dcae.js.map",
     "453.1e171964.chunk.js.map": "/cs-catalog/static/js/453.1e171964.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a06c9c0b.css",
-    "static/js/main.8a47b735.js"
+    "static/css/main.bb955160.css",
+    "static/js/main.fab9dcae.js"
   ]
 }
