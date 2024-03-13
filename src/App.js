@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {Table, TableHead, TableRow, TableCell, TableBody, Modal, Button, Drawer} from '@mui/material';
 import courses from './data/coursedata';
 import './App.css';
-import logo from './images/byu-logo.svg'
 
 const Header = ({ uncheckAllCheckboxes, setFreshman2, setSophmore1, setSophmore2, setJunior1, setJunior2, setSenior1, setSenior2 }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
