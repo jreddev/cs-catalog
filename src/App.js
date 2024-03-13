@@ -12,7 +12,7 @@ const Header = ({ uncheckAllCheckboxes, setFreshman2, setSophmore1, setSophmore2
     };
 
     return (
-        <header className="header">
+        <header className="header" style={{ width: '95%' , margin: '0 auto' }}>
             <div className="logo-and-title">
                 <img className="byu-logo-image" alt="BYU" src="https://cpaacademy.s3.amazonaws.com/images/companylogos/byu-logo-blue.png"/>
                 <h1>CS Course Catalog</h1>
@@ -131,7 +131,7 @@ const App = () => {
                 setSenior2={setSenior2}
 
             />
-            <Table>
+            <Table style={{ width: '95%' , margin: '0 auto' }}>
                 <TableHead className="sticky-header">
                     <TableRow>
                         <TableCell style={{ fontWeight: 'bold' }}>Course ID</TableCell>
