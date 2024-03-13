@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
-import { Table, TableHead, TableRow, TableCell, TableBody, Modal, Button } from '@mui/material';
+import {Table, TableHead, TableRow, TableCell, TableBody, Modal, Button, Drawer} from '@mui/material';
 import courses from './data/coursedata';
 import './App.css';
 
+const Header = ({ uncheckAllCheckboxes, setFreshman2, setSophmore1, setSophmore2, setJunior1, setJunior2, setSenior1, setSenior2 }) => {
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
-const Header = ({ uncheckAllCheckboxes, checkDefaultCourses }) => {
+    const toggleDrawer = () => {
+        setDrawerOpen(!drawerOpen);
+    };
+
     return (
         <header className="header">
             <h1>CS Course Catalog</h1>
-            <div className="buttons">
-                <button onClick={uncheckAllCheckboxes}>Uncheck All</button>
-                <button onClick={checkDefaultCourses}>Default User</button>
+            <div className="menu">
+                <button className="menu-icon" onClick={toggleDrawer}>&#9776;</button>
             </div>
+            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer} className = 'drawer'>
+                <div className="drawer-content">
+                    <h3>Semester Presets</h3>
+                    <Button variant="text" onClick={uncheckAllCheckboxes}>Freshman | 1st Semester</Button>
+                    <Button variant="text" onClick={setFreshman2}> Freshman | 2nd Semester</Button>
+                    <Button variant="text" onClick={setSophmore1}>Sophomore | 1st Semester</Button>
+                    <Button variant="text" onClick={setSophmore2}>Sophomore | 2nd Semester</Button>
+                    <Button variant="text" onClick={setJunior1}>Junior | 1st Semester</Button>
+                    <Button variant="text" onClick={setJunior2}>Junior | 2nd Semester</Button>
+                    <Button variant="text" onClick={setSenior1}>Senior | 1st Semester</Button>
+                    <Button variant="text" onClick={setSenior2}>Senior | Last Semester</Button>
+
+                    <h3>Filters</h3>
+                </div>
+            </Drawer>
         </header>
     );
 };
@@ -38,8 +57,56 @@ const App = () => {
         setCourseStatus({});
     };
 
-    const checkDefaultCourses = () => {
-        const defaultCourseIds = [142, 235, 224, 236, 240, 260];
+    const setFreshman2 = () => {
+        const defaultCourseIds = [142];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
+            acc[courseId] = true;
+            return acc;
+        }, {});
+        setCourseStatus(defaultCourseStatus);
+    };
+    const setSophmore1 = () => {
+        const defaultCourseIds = [142, 235, 224];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
+            acc[courseId] = true;
+            return acc;
+        }, {});
+        setCourseStatus(defaultCourseStatus);
+    };
+    const setSophmore2 = () => {
+        const defaultCourseIds = [142, 235, 224, 236, 260];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
+            acc[courseId] = true;
+            return acc;
+        }, {});
+        setCourseStatus(defaultCourseStatus);
+    };
+    const setJunior1 = () => {
+        const defaultCourseIds = [142, 235, 224, 236, 240, 260, 252];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
+            acc[courseId] = true;
+            return acc;
+        }, {});
+        setCourseStatus(defaultCourseStatus);
+    };
+    const setJunior2 = () => {
+        const defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
+            acc[courseId] = true;
+            return acc;
+        }, {});
+        setCourseStatus(defaultCourseStatus);
+    };
+    const setSenior1 = () => {
+        const defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340, 404, 452];
+        const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
+            acc[courseId] = true;
+            return acc;
+        }, {});
+        setCourseStatus(defaultCourseStatus);
+    };
+    const setSenior2 = () => {
+        const defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340, 404, 452, 393, 401, 256, 356];
         const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
             acc[courseId] = true;
             return acc;
@@ -51,25 +118,34 @@ const App = () => {
         <div className="page">
             <Header
                 uncheckAllCheckboxes={uncheckAllCheckboxes}
-                checkDefaultCourses={checkDefaultCourses}
+                setFreshman2={setFreshman2}
+                setSophmore1={setSophmore1}
+                setSophmore2={setSophmore2}
+                setjunior1={setJunior1}
+                setJunior2={setJunior2}
+                setSenior1={setSenior1}
+                setSenior2={setSenior2}
+
             />
             <Table>
-                <TableHead>
+                <TableHead className="sticky-header">
                     <TableRow>
-                        <TableCell>Course ID</TableCell>
-                        <TableCell>Title</TableCell>
-                        <TableCell>Credits</TableCell>
-                        <TableCell>Status</TableCell>
-                        <TableCell>Completed</TableCell>
+                        <TableCell style={{ fontWeight: 'bold' }}>Course ID</TableCell>
+                        <TableCell style={{ fontWeight: 'bold' }}>Title</TableCell>
+                        <TableCell style={{ fontWeight: 'bold' }}>Credits</TableCell>
+                        <TableCell style={{ fontWeight: 'bold' }}>Status</TableCell>
+                        <TableCell style={{ fontWeight: 'bold' }}>Completed</TableCell>
                     </TableRow>
                 </TableHead>
+
+
                 <TableBody>
                     {courses.map((course) => (
-                        <TableRow key={course.course_id} onClick={() => handleRowClick(course)}>
+                        <TableRow key={course.course_id} onClick={() => handleRowClick(course)} className="table-row">
                             <TableCell>CS {course.course_id}</TableCell>
                             <TableCell>{course.title.replace(/^C S \d+:/, '')}</TableCell>
-                            <TableCell className = "middle">{course.credits}</TableCell>
-                            <TableCell className = 'middle'>
+                            <TableCell className="middle">{course.credits}</TableCell>
+                            <TableCell className='middle'>
                                 <div
                                     className="status-icon"
                                     style={{
@@ -83,7 +159,7 @@ const App = () => {
                                 <input
                                     type="checkbox"
                                     checked={courseStatus[course.course_id] || false}
-                                    disabled={getStatusText(course, courseStatus) === 'Blocked'}
+                                    disabled={getStatusText(course, courseStatus) === 'Unmet Prereqs'}
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         handleCheckboxChange(course.course_id);
@@ -96,8 +172,19 @@ const App = () => {
             </Table>
             {modalData && (
                 <Modal open={true} onClose={closeModal} aria-labelledby="modal-title" centered>
-                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px' }}>
-                        <h2 id="modal-title">Course Details</h2>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '10px' }}>
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            marginBottom: '10px'
+                        }}>
+                            <h2>CS {modalData.course_id} </h2>
+                            <h3>{modalData.title.replace(/^C S \d+:/, '')}</h3>
+                            <button onClick={closeModal}
+                                    style={{background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer'}}>×
+                            </button>
+                        </div>
                         <p>
                             <strong>Credits:</strong> {modalData.credits}
                         </p>
@@ -105,7 +192,6 @@ const App = () => {
                         <p>{modalData.course_description}</p>
                         <h4>Professors & Ratings:</h4>
                         <InstructorCardList instructors={modalData.instructors} />
-                        <Button variant="contained" onClick={closeModal}>Close</Button>
                     </div>
                 </Modal>
             )}
@@ -115,14 +201,14 @@ const App = () => {
 
 const getStatusColor = (course, courseStatus) => {
     if (course.prereq_id && !courseStatus[course.prereq_id]) {
-        return '#8d0707'; // Blocked color
+        return '#8d0707'; // Unmet Prereqs color
     }
     return courseStatus[course.course_id] ? '#659419' : '#e39a04'; // Completed or Available color
 };
 
 const getStatusText = (course, courseStatus) => {
     if (course.prereq_id && !courseStatus[course.prereq_id]) {
-        return 'Blocked'; // Prerequisites not met
+        return 'Unmet Prereqs'; // Prerequisites not met
     }
     return courseStatus[course.course_id] ? 'Completed' : 'Available'; // Completed or Available status
 };

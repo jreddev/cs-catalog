@@ -13,20 +13,6 @@
   border-bottom: 1px solid #bbbbbb;
 }
 
-.buttons button {
-  margin-right: 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #0c59a6;
-  color: #fff;
-  cursor: pointer;
-}
-
-.buttons button:hover {
-  background-color: #0c4d8f;
-}
-
 /* Table styles */
 .table-container {
   margin-top: 20px;
@@ -74,10 +60,10 @@
 .modal-content {
   background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 80%;
 }
+
 
 .modal-content h2 {
   margin-top: 0;
@@ -87,28 +73,59 @@
   margin-bottom: 15px;
 }
 
-.modal-content button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background-color: #0056b3;
-}
-
 .status-icon {
   color: #ffffff;
   text-align: center;
   width: fit-content;
   height: fit-content;
-  padding: 6px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 5px;
 }
 
 .middle {
   text-align: center;
 }
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Ensure it appears above other elements */
+  background-color: white; /* Optional: match background color of the page */
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.table-row:hover {
+  background-color: #f8f8f8; /* Set your desired background color */
+}
+
+.drawer-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 300px;
+}
+
+.drawer-content button {
+  padding: 8px;
+  color: black;
+  text-align: left;
+  width: max-content;
+  border-radius: 10px;
+}
+.drawer-content button:hover {
+  color: slategray;
+  text-align: left;
+  width: max-content;
+}
+
+
