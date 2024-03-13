@@ -175,15 +175,29 @@ const App = () => {
             </Table>
             {modalData && (
                 <Modal open={true} onClose={closeModal} aria-labelledby="modal-title" centered>
-                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '10px' }}>
+                    <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        backgroundColor: 'white',
+                        padding: '20px',
+                        borderRadius: '10px',
+                        width: '70%', // Adjust the width as desired
+                        height: "fit-content", // Adjust the height as desired
+                        maxHeight: '80vh', // Add maxHeight to limit height to viewport height
+                        overflowY: 'auto' // Add overflowY to enable vertical scrolling if content exceeds height
+                    }}>
                         <div style={{
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
                             marginBottom: '10px'
                         }}>
-                            <h2>CS {modalData.course_id} </h2>
-                            <h3>{modalData.title.replace(/^C S \d+:/, '')}</h3>
+                            <div className="logo-and-title">
+                                <h2>CS {modalData.course_id} </h2>
+                                <h3>{modalData.title.replace(/^C S \d+:/, '')}</h3>
+                            </div>
                             <button onClick={closeModal}
                                     style={{background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer'}}>×
                             </button>
@@ -197,6 +211,7 @@ const App = () => {
                         <InstructorCardList instructors={modalData.instructors} />
                     </div>
                 </Modal>
+
             )}
         </div>
     );
@@ -204,9 +219,9 @@ const App = () => {
 
 const getStatusColor = (course, courseStatus) => {
     if (course.prereq_id && !courseStatus[course.prereq_id]) {
-        return '#c9c8c8'; // Unmet Prereqs color
+        return '#868686'; // Unmet Prereqs color
     }
-    return courseStatus[course.course_id] ? '#bace83' : '#659419'; // Completed or Available color
+    return courseStatus[course.course_id] ? '#c4c4c4' : '#659419'; // Completed or Available color
 };
 
 const getStatusText = (course, courseStatus) => {
