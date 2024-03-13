@@ -205,9 +205,9 @@ const App = () => {
 
 const getStatusColor = (course, courseStatus) => {
     if (course.prereq_id && !courseStatus[course.prereq_id]) {
-        return '#c5c5c5'; // Unmet Prereqs color
+        return '#c9c8c8'; // Unmet Prereqs color
     }
-    return courseStatus[course.course_id] ? '#676767' : '#659419'; // Completed or Available color
+    return courseStatus[course.course_id] ? '#bace83' : '#659419'; // Completed or Available color
 };
 
 const getStatusText = (course, courseStatus) => {
