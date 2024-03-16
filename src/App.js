@@ -8,6 +8,9 @@ import {
   Modal,
   Button,
   Drawer,
+  Stack,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import courses from "./data/coursedata";
 import "./App.css";
@@ -22,6 +25,8 @@ const Header = ({
   setSenior1,
   setSenior2,
   handleHideCheckedCourses,
+  categories,
+  handleCategoryChange,
 }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -30,59 +35,133 @@ const Header = ({
   };
 
   return (
-    <header className="header" style={{ width: "95%", margin: "0 auto" }}>
-      <div className="logo-and-title">
-        <img
-          className="byu-logo-image"
-          alt="BYU"
-          src="https://cpaacademy.s3.amazonaws.com/images/companylogos/byu-logo-blue.png"
-        />
-        <h1>CS Course Catalog</h1>
-      </div>
-      <button onClick={handleHideCheckedCourses}>Hide Checked Courses</button>
-      <div className="menu">
-        <button className="menu-icon" onClick={toggleDrawer}>
-          &#9776;
-        </button>
-      </div>
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={toggleDrawer}
-        className="drawer"
-      >
-        <div className="drawer-content">
-          <h3>Semester Presets</h3>
-          <Button variant="text" onClick={uncheckAllCheckboxes}>
-            Freshman | 1st Semester
-          </Button>
-          <Button variant="text" onClick={setFreshman2}>
-            {" "}
-            Freshman | 2nd Semester
-          </Button>
-          <Button variant="text" onClick={setSophmore1}>
-            Sophomore | 1st Semester
-          </Button>
-          <Button variant="text" onClick={setSophmore2}>
-            Sophomore | 2nd Semester
-          </Button>
-          <Button variant="text" onClick={setJunior1}>
-            Junior | 1st Semester
-          </Button>
-          <Button variant="text" onClick={setJunior2}>
-            Junior | 2nd Semester
-          </Button>
-          <Button variant="text" onClick={setSenior1}>
-            Senior | 1st Semester
-          </Button>
-          <Button variant="text" onClick={setSenior2}>
-            Senior | Last Semester
-          </Button>
-
-          <h3>Filters</h3>
+    <div className="header-container">
+      <header className="header" style={{ width: "95%", margin: "0 auto" }}>
+        <div className="logo-and-title">
+          <img
+            className="byu-logo-image"
+            alt="BYU"
+            src="https://cpaacademy.s3.amazonaws.com/images/companylogos/byu-logo-blue.png"
+          />
+          <h1>CS Course Catalog</h1>
         </div>
-      </Drawer>
-    </header>
+
+        <div className="menu">
+          <Button
+            onClick={handleHideCheckedCourses}
+            variant="outlined"
+            style={{
+              marginRight: "8px",
+              borderRadius: "8px",
+              padding: "2px 5px",
+            }}
+          >
+            Toggle Completed
+          </Button>
+          <button className="menu-icon" onClick={toggleDrawer}>
+            &#9776;
+          </button>
+        </div>
+        <Drawer
+          anchor="right"
+          open={drawerOpen}
+          onClose={toggleDrawer}
+          className="drawer"
+        >
+          <div className="drawer-content">
+            <h3>Filters</h3>
+            {[
+              "Core",
+              "Software Engineering",
+              "Elective",
+              "Math",
+              "Machine Learning and AI",
+              "Design and HCI",
+              "Systems",
+              "Data",
+              "Essential",
+              "Theory",
+              "Frontend",
+              "Graphics",
+              "100",
+              "200",
+              "300",
+              "400",
+            ].map((category) => (
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={() => {
+                      handleCategoryChange(category.toLowerCase());
+                    }}
+                    checked={categories.has(category.toLowerCase())}
+                  />
+                }
+                label={category}
+                key={category}
+              />
+            ))}
+            <h3>Semester Presets</h3>
+            <Button variant="text" onClick={uncheckAllCheckboxes}>
+              Freshman | 1st Semester
+            </Button>
+            <Button variant="text" onClick={setFreshman2}>
+              {" "}
+              Freshman | 2nd Semester
+            </Button>
+            <Button variant="text" onClick={setSophmore1}>
+              Sophomore | 1st Semester
+            </Button>
+            <Button variant="text" onClick={setSophmore2}>
+              Sophomore | 2nd Semester
+            </Button>
+            <Button variant="text" onClick={setJunior1}>
+              Junior | 1st Semester
+            </Button>
+            <Button variant="text" onClick={setJunior2}>
+              Junior | 2nd Semester
+            </Button>
+            <Button variant="text" onClick={setSenior1}>
+              Senior | 1st Semester
+            </Button>
+            <Button variant="text" onClick={setSenior2}>
+              Senior | Last Semester
+            </Button>
+          </div>
+        </Drawer>
+      </header>
+      <Stack
+        direction="row"
+        spacing={2}
+        style={{
+          width: "95%",
+          margin: "0 auto",
+          marginBottom: 10,
+          alignItems: "center",
+        }}
+      >
+        {categories.size > 0 && "Current Filters: "}
+        {categories.size > 0 &&
+          Array.from(categories).map((category) => (
+            <Button
+              key={category}
+              variant="contained"
+              style={{ borderRadius: 20, padding: "2px 10px", margin: "0 5px" }}
+              endIcon={<span style={{ fontSize: 12, marginLeft: 5 }}>✕</span>}
+              onClick={() => handleCategoryChange(category.toLowerCase())}
+            >
+              {category}
+            </Button>
+          ))}
+        <Button
+          variant="outlined"
+          onClick={toggleDrawer}
+          style={{ borderRadius: 10, padding: "2px 5px", margin: "0 5px" }}
+        >
+          Add Filters
+        </Button>
+      </Stack>
+    </div>
   );
 };
 
@@ -95,7 +174,7 @@ const App = () => {
 
   useEffect(() => {
     applyCategoryFilter();
-  }, []);
+  }, [selectedCategories]);
 
   const applyCategoryFilter = () => {
     setFilteredCourses(
@@ -225,6 +304,8 @@ const App = () => {
         setSenior1={setSenior1}
         setSenior2={setSenior2}
         handleHideCheckedCourses={handleHideCheckedCourses}
+        categories={selectedCategories}
+        handleCategoryChange={handleCategoryChange}
       />
       <Table style={{ width: "95%", margin: "0 auto" }}>
         <TableHead className="sticky-header">

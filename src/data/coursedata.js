@@ -11,7 +11,7 @@ const courses = [
       "Introduction to object-oriented program design and development.  Principles of algorithm formulation and implementation.",
     credits: 3,
     prereq_id: null,
-    category: ["core", "SE", "100", "Essential"],
+    category: ["core", "Software Engineering", "100", "Essential"],
     note: null,
     instructors: [
       {
@@ -43,7 +43,7 @@ const courses = [
       "Fundamental data structures and algorithms of computer science; basic algorithm analysis; recursion; sorting and searching; lists, stacks, queues, trees, hashing; object-oriented data abstraction.",
     credits: 3,
     prereq_id: 142,
-    category: ["core", "SE", "200", "Essential", "Data"],
+    category: ["core", "Software Engineering", "200", "Essential", "Data"],
     note: null,
     instructors: [
       {
@@ -70,7 +70,7 @@ const courses = [
       "How a computer works to execute sequential code:low level data representation and abstraction, the relationship between C and assembly, computer architecture and pipelining, the memory hierarchy, dynamic memory allocation, and linking.",
     credits: 3,
     prereq_id: 235,
-    category: ["core", "SE", "Systems", "200"],
+    category: ["core", "Software Engineering", "Systems", "200"],
     note: null,
     instructors: [
       {
@@ -92,7 +92,7 @@ const courses = [
       "Introduction to grammars and parsing; predicate and propositional logic; proof techniques; sets, functions, relations, relational data model; graphs and graph algorithms.",
     credits: 3,
     prereq_id: 235,
-    category: ["core", "SE", "Theory", "200"],
+    category: ["core", "Software Engineering", "Theory", "200"],
     note: null,
     instructors: [
       {
@@ -109,7 +109,7 @@ const courses = [
       "Advanced software development with an object-oriented focus. Design, implementation, and testing of medium-sized programs including a server program.",
     credits: 4,
     prereq_id: 235,
-    category: ["core", "SE", "Essential", "300", "Frontend"],
+    category: ["core", "Software Engineering", "Essential", "300", "Frontend"],
     note: null,
     instructors: [
       {
@@ -148,7 +148,7 @@ const courses = [
       "Introduction to designing the user experience. Students learn good interviewing techniques, how to develop low fidelity prototypes on paper, and how to create basic high fidelity prototypes in Figma.",
     credits: 3,
     prereq_id: 142,
-    category: ["elective", "HCI", "200"],
+    category: ["elective", "Design and HCI", "200"],
     note: null,
     instructors: [
       {
@@ -165,7 +165,7 @@ const courses = [
       "Introduction to web application design and implementation. Both front end and back end development with an emphasis on REST architectures.",
     credits: 3,
     prereq_id: 142,
-    category: ["core", "SE", "200", "Frontend", "Essential"],
+    category: ["core", "Software Engineering", "200", "Frontend", "Essential"],
     note: null,
     instructors: [
       {
@@ -182,7 +182,7 @@ const courses = [
       "A study of the design and analysis of algorithms as solutions to problems, including dynamic programming, linear programming, greedy algorithms, divide-and-conquer algorithms, graph algorithms, and intelligent search algorithms.",
     credits: 3,
     prereq_id: 236,
-    category: ["core", "SE", "300", "Theory", "Math", "Data"],
+    category: ["core", "Software Engineering", "300", "Theory", "Math", "Data"],
     note: null,
     instructors: [
       {
@@ -204,7 +204,7 @@ const courses = [
       "Systems programming principles and concepts, including Linux systems programming, multiprocessing, concurrency, exceptional control flow, caching, sockets, protocols, and non-blocking I/O.",
     credits: 3,
     prereq_id: 224,
-    category: ["core", "SE", "Systems", "300", "Theory"],
+    category: ["core", "Software Engineering", "Systems", "300", "Theory"],
     note: null,
     instructors: [
       {
@@ -221,7 +221,7 @@ const courses = [
       "Fundamental challenge of software quality through the entire software product life-cycle. Sound engineering principles to ensure and assure quality at each stage of the life-cycle with an emphasis in early stages on testing techniques, dynamic and static program analysis, and formal verification for high assurance systems. Practical application to software artifacts and algorithm implementation connects the course material to real world application in the field.",
     credits: 3,
     prereq_id: 240,
-    category: ["elective", "SE", "300"],
+    category: ["elective", "Software Engineering", "300"],
     note: null,
     instructors: [
       {
@@ -255,7 +255,7 @@ const courses = [
       "Use design, development, testing and refactoring techniques to build and evolve reliable, maintainable and scalable software systems. Covers a wide range of design patterns and principles. Also introduces students to software architecture and architectural patterns.",
     credits: 3,
     prereq_id: 240,
-    category: ["core", "SE", "300", "Essential", "Frontend"],
+    category: ["core", "Software Engineering", "300", "Essential", "Frontend"],
     note: null,
     instructors: [
       {
@@ -311,7 +311,7 @@ const courses = [
       "This class combines designing the user experience with implementing the technology. Students learn website design, information architecture, and how to design for the broader ecosystem of use. Finally, students will learn principles specifically relevant to website design and information architecture. Web design is one of the most common UX jobs and so this makes their skills highly marketable.",
     credits: 3,
     prereq_id: 256,
-    category: ["elective", "HCI", "300", "Frontend"],
+    category: ["elective", "Design and HCI", "300", "Frontend"],
     note: null,
     instructors: [
       {
@@ -350,7 +350,7 @@ const courses = [
       "Societal impact of computer technology, the computer scientist's place in society, ethical issues.  Reading, discussion, and writing seminar.",
     credits: 2,
     prereq_id: 240,
-    category: ["core", "SE", "Theory", "400"],
+    category: ["core", "Software Engineering", "Theory", "400"],
     note: "WRTG 316",
     instructors: [
       {
@@ -423,7 +423,7 @@ const courses = [
       "Introduction to fundamental concepts and algorithms of computer vision, including feature extraction, detection, segmentation, registration, recognition, motion, 3D vision, and image understanding. Applies techniques from image processing, geometry, Bayesian methods, optimization, and machine learning to computer vision problems.",
     credits: 3,
     prereq_id: 312,
-    category: ["elective", "MLA", "400", "Graphics"],
+    category: ["elective", "Machine Learning and AI", "400", "Graphics"],
     note: null,
     instructors: [
       {
@@ -440,7 +440,7 @@ const courses = [
       "Database models: relational, deductive, object-oriented.  Integrity constraints, query languages, database design.",
     credits: 3,
     prereq_id: 240,
-    category: ["elective", "SE", "400", "Data", "Essential"],
+    category: ["elective", "Software Engineering", "400", "Data", "Essential"],
     note: null,
     instructors: [
       {
@@ -491,7 +491,7 @@ const courses = [
       "Iterative user experience design for mobile and ubiquitous computing with an emphasis on conceptualization and prototyping in specific contexts. Complete an open-ended project from initial design through functional prototype, with design and critique sessions.",
     credits: 3,
     prereq_id: 356,
-    category: ["elective", "HCI", "400"],
+    category: ["elective", "Design and HCI", "400"],
     note: null,
     instructors: [
       {
@@ -559,7 +559,7 @@ const courses = [
       "Introduction to core areas of artifical intelligence; intelligent agents, problem solving and search, knowledge-based systems and inference, planning, uncertainty, learning, and perception.",
     credits: 3,
     prereq_id: 312,
-    category: ["elective", "MLA", "400"],
+    category: ["elective", "Machine Learning and AI", "400"],
     note: null,
     instructors: [
       {
@@ -576,7 +576,7 @@ const courses = [
       "Machine learning models and other mechanisms allowing computers to learn and find knowledge from data.",
     credits: 3,
     prereq_id: 312,
-    category: ["elective", "MLA", "400", "Data"],
+    category: ["elective", "Machine Learning and AI", "400", "Data"],
     note: null,
     instructors: [
       {
@@ -593,7 +593,7 @@ const courses = [
       "Theory and practice of modern deep learning and associated software frameworks. A broad look at the field, drawing on material from machine vision, machine translation,  dynamical systems, audio processing, neural computing and human perception. Supporting mathematical concepts are also covered, including linear algebra, stochastic optimization, and hardware acceleration.",
     credits: 3,
     prereq_id: 312,
-    category: ["elective", "MLA", "400", "Data", "Math"],
+    category: ["elective", "Machine Learning and AI", "400", "Data", "Math"],
     note: null,
     instructors: [
       {
@@ -610,7 +610,7 @@ const courses = [
       "Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, implement, test, and demonstrate a major project.",
     credits: 3,
     prereq_id: 329,
-    category: ["elective", "SE", "400"],
+    category: ["elective", "Software Engineering", "400"],
     note: null,
     instructors: [
       {
@@ -627,7 +627,7 @@ const courses = [
       "Culminating experience based on skills learned in advanced technical courses. Students work in teams to plan, design, implement, test, and demonstrate a major project.",
     credits: 3,
     prereq_id: 480,
-    category: ["elective", "SE", "400"],
+    category: ["elective", "Software Engineering", "400"],
     note: null,
     instructors: [
       {

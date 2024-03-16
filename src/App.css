@@ -1,7 +1,6 @@
-
 /* Global styles */
 .page {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .header {
@@ -10,8 +9,16 @@
   align-items: center;
   padding: 20px;
   background-color: #ffffff;
-  border-bottom: 1px solid #bbbbbb;
   color: #232323;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid #bbbbbb;
 }
 
 /* Table styles */
@@ -64,7 +71,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 80%;
 }
-
 
 .modal-content h2 {
   margin-top: 0;
@@ -141,5 +147,3 @@
 .logo-and-title > * {
   margin-right: 30px; /* Adjust this value to your preference */
 }
-
-
