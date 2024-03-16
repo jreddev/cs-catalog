@@ -341,6 +341,7 @@ const App = () => {
               <TableCell>
                 <input
                   type="checkbox"
+                  style={{ height: "20px", width: "20px" }}
                   checked={courseStatus[course.course_id] || false}
                   disabled={
                     getStatusText(course, courseStatus) === "Unmet Prereqs"
