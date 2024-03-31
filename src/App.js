@@ -11,160 +11,157 @@ import {
   Stack,
   Checkbox,
   FormControlLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import courses from "./data/coursedata";
 import "./App.css";
 
 const Header = ({
-  uncheckAllCheckboxes,
-  setFreshman2,
-  setSophmore1,
-  setSophmore2,
-  setJunior1,
-  setJunior2,
-  setSenior1,
-  setSenior2,
-  handleHideCheckedCourses,
-  categories,
-  handleCategoryChange,
-  checkedCoursesHidden,
-}) => {
+                  setPreset,
+                  handleHideCheckedCourses,
+                  categories,
+                  handleCategoryChange,
+                  checkedCoursesHidden,
+                }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedPreset, setSelectedPreset] = useState("");
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
 
   return (
-    <div className="header-container">
-      <header className="header" style={{ width: "95%", margin: "0 auto" }}>
-        <div className="logo-and-title">
-          <img
-            className="byu-logo-image"
-            alt="BYU"
-            src="https://cpaacademy.s3.amazonaws.com/images/companylogos/byu-logo-blue.png"
-          />
-          <h1>CS Course Catalog</h1>
-        </div>
-
-        <div className="menu">
-          <Button
-            onClick={handleHideCheckedCourses}
-            variant="outlined"
-            style={{
-              marginRight: "8px",
-              borderRadius: "8px",
-              padding: "2px 5px",
-            }}
-          >
-            {checkedCoursesHidden
-              ? "Show Completed Classes"
-              : "Hide Completed Classes"}
-          </Button>
-          <button className="menu-icon" onClick={toggleDrawer}>
-            &#9776;
-          </button>
-        </div>
-        <Drawer
-          anchor="right"
-          open={drawerOpen}
-          onClose={toggleDrawer}
-          className="drawer"
-        >
-          <div className="drawer-content">
-            <h3>Filters</h3>
-            {[
-              "Core",
-              "Software Engineering",
-              "Elective",
-              "Math",
-              "Machine Learning and AI",
-              "Design and HCI",
-              "Systems",
-              "Data",
-              "Essential",
-              "Theory",
-              "Frontend",
-              "Graphics",
-              "100",
-              "200",
-              "300",
-              "400",
-            ].map((category) => (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    onChange={() => {
-                      handleCategoryChange(category.toLowerCase());
-                    }}
-                    checked={categories.has(category.toLowerCase())}
-                  />
-                }
-                label={category}
-                key={category}
-              />
-            ))}
-            <h3>Semester Presets</h3>
-            <Button variant="text" onClick={uncheckAllCheckboxes}>
-              Freshman | 1st Semester
-            </Button>
-            <Button variant="text" onClick={setFreshman2}>
-              {" "}
-              Freshman | 2nd Semester
-            </Button>
-            <Button variant="text" onClick={setSophmore1}>
-              Sophomore | 1st Semester
-            </Button>
-            <Button variant="text" onClick={setSophmore2}>
-              Sophomore | 2nd Semester
-            </Button>
-            <Button variant="text" onClick={setJunior1}>
-              Junior | 1st Semester
-            </Button>
-            <Button variant="text" onClick={setJunior2}>
-              Junior | 2nd Semester
-            </Button>
-            <Button variant="text" onClick={setSenior1}>
-              Senior | 1st Semester
-            </Button>
-            <Button variant="text" onClick={setSenior2}>
-              Senior | Last Semester
-            </Button>
+      <div className="header-container">
+        <header className="header" style={{ width: "95%", margin: "0 auto" }}>
+          <div className="logo-and-title">
+            <img
+                className="byu-logo-image"
+                alt="BYU"
+                src="https://cpaacademy.s3.amazonaws.com/images/companylogos/byu-logo-blue.png"
+            />
+            <h1>CS Course Catalog</h1>
           </div>
-        </Drawer>
-      </header>
-      <Stack
-        direction="row"
-        spacing={2}
-        style={{
-          width: "95%",
-          margin: "0 auto",
-          marginBottom: 10,
-          alignItems: "center",
-        }}
-      >
-        {categories.size > 0 && "Current Filters: "}
-        {categories.size > 0 &&
-          Array.from(categories).map((category) => (
+
+          <div className="menu">
+
             <Button
-              key={category}
-              variant="contained"
-              style={{ borderRadius: 20, padding: "2px 10px", margin: "0 5px" }}
-              endIcon={<span style={{ fontSize: 12, marginLeft: 5 }}>✕</span>}
-              onClick={() => handleCategoryChange(category.toLowerCase())}
+                onClick={handleHideCheckedCourses}
+                variant="outlined"
+                style={{
+                  marginRight: "8px",
+                  borderRadius: "8px",
+                  padding: "2px 5px",
+                }}
             >
-              {category}
+              {checkedCoursesHidden
+                  ? "Show Completed Classes"
+                  : "Hide Completed Classes"}
             </Button>
-          ))}
-        <Button
-          variant="outlined"
-          onClick={toggleDrawer}
-          style={{ borderRadius: 10, padding: "2px 5px", margin: "0 5px" }}
+            <div className="preset-drawer">
+              <Select
+                  className="custom-select"
+                  variant='standard'
+                  value={selectedPreset}
+                  onChange={(e) => {
+                    setSelectedPreset(e.target.value);
+                    setPreset(e.target.value); // Call the function to set the preset
+                  }}
+                  displayEmpty
+                  disableUnderline
+                  SelectDisplayProps={{ style: { backgroundColor: 'transparent' } }} // Customize select display background
+                  InputLabelProps={{ shrink: true }}
+                  style={{color: '#008bdf', fontSize: '14px'}}
+              >
+                <MenuItem value="" disabled>SELECT PRESET</MenuItem>
+                <MenuItem value="freshman1">Freshman | 1st Semester</MenuItem>
+                <MenuItem value="freshman2">Freshman | 2nd Semester</MenuItem>
+                <MenuItem value="sophomore1">Sophomore | 1st Semester</MenuItem>
+                <MenuItem value="sophomore2">Sophomore | 2nd Semester</MenuItem>
+                <MenuItem value="junior1">Junior | 1st Semester</MenuItem>
+                <MenuItem value="junior2">Junior | 2nd Semester</MenuItem>
+                <MenuItem value="senior1">Senior | 1st Semester</MenuItem>
+                <MenuItem value="senior2">Senior | Last Semester</MenuItem>
+              </Select>
+            </div>
+            <button className="menu-icon" onClick={toggleDrawer}>
+              &#9776;
+            </button>
+          </div>
+          <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={toggleDrawer}
+              className="drawer"
+          >
+            <div className="drawer-content">
+              <h3>Filters</h3>
+              {[
+                "Core",
+                "Software Engineering",
+                "Elective",
+                "Math",
+                "Machine Learning and AI",
+                "Design and HCI",
+                "Systems",
+                "Data",
+                "Essential",
+                "Theory",
+                "Frontend",
+                "Graphics",
+                "100",
+                "200",
+                "300",
+                "400",
+              ].map((category) => (
+                  <FormControlLabel
+                      control={
+                        <Checkbox
+                            onChange={() => {
+                              handleCategoryChange(category.toLowerCase());
+                            }}
+                            checked={categories.has(category.toLowerCase())}
+                        />
+                      }
+                      label={category}
+                      key={category}
+                  />
+              ))}
+            </div>
+          </Drawer>
+        </header>
+        <Stack
+            direction="row"
+            spacing={2}
+            style={{
+              width: "95%",
+              margin: "0 auto",
+              marginBottom: 10,
+              alignItems: "center",
+            }}
         >
-          Add Filters
-        </Button>
-      </Stack>
-    </div>
+          {categories.size > 0 && "Current Filters: "}
+          {categories.size > 0 &&
+              Array.from(categories).map((category) => (
+                  <Button
+                      key={category}
+                      variant="contained"
+                      style={{ borderRadius: 20, padding: "2px 10px", margin: "0 5px" }}
+                      endIcon={<span style={{ fontSize: 12, marginLeft: 5 }}>✕</span>}
+                      onClick={() => handleCategoryChange(category.toLowerCase())}
+                  >
+                    {category}
+                  </Button>
+              ))}
+          <Button
+              variant="outlined"
+              onClick={toggleDrawer}
+              style={{ borderRadius: 10, padding: "2px 5px", margin: "0 5px" }}
+          >
+            Add Filters
+          </Button>
+        </Stack>
+      </div>
   );
 };
 
@@ -231,79 +228,53 @@ const App = () => {
     setCourseStatus({});
   };
 
-  const setFreshman2 = () => {
-    const defaultCourseIds = [142];
+  const setPreset = (preset) => {
+    let defaultCourseIds;
+
+    switch (preset) {
+      case "freshman1":
+        defaultCourseIds = [];
+        break;
+      case "freshman2":
+        defaultCourseIds = [142];
+        break;
+      case "sophomore1":
+        defaultCourseIds = [142, 235, 224];
+        break;
+      case "sophomore2":
+        defaultCourseIds = [142, 235, 224, 236, 260];
+        break;
+      case "junior1":
+        defaultCourseIds = [142, 235, 224, 236, 240, 260, 252];
+        break;
+      case "junior2":
+        defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340];
+        break;
+      case "senior1":
+        defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340, 404, 452];
+        break;
+      case "senior2":
+        defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340, 404, 452, 393, 401, 256, 356];
+        break;
+      default:
+        defaultCourseIds = [];
+        return; // No preset selected or unknown preset
+    }
+
     const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
       acc[courseId] = true;
       return acc;
     }, {});
+
     setCourseStatus(defaultCourseStatus);
   };
-  const setSophmore1 = () => {
-    const defaultCourseIds = [142, 235, 224];
-    const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
-      acc[courseId] = true;
-      return acc;
-    }, {});
-    setCourseStatus(defaultCourseStatus);
-  };
-  const setSophmore2 = () => {
-    const defaultCourseIds = [142, 235, 224, 236, 260];
-    const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
-      acc[courseId] = true;
-      return acc;
-    }, {});
-    setCourseStatus(defaultCourseStatus);
-  };
-  const setJunior1 = () => {
-    const defaultCourseIds = [142, 235, 224, 236, 240, 260, 252];
-    const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
-      acc[courseId] = true;
-      return acc;
-    }, {});
-    setCourseStatus(defaultCourseStatus);
-  };
-  const setJunior2 = () => {
-    const defaultCourseIds = [142, 235, 224, 236, 240, 260, 252, 312, 324, 340];
-    const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
-      acc[courseId] = true;
-      return acc;
-    }, {});
-    setCourseStatus(defaultCourseStatus);
-  };
-  const setSenior1 = () => {
-    const defaultCourseIds = [
-      142, 235, 224, 236, 240, 260, 252, 312, 324, 340, 404, 452,
-    ];
-    const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
-      acc[courseId] = true;
-      return acc;
-    }, {});
-    setCourseStatus(defaultCourseStatus);
-  };
-  const setSenior2 = () => {
-    const defaultCourseIds = [
-      142, 235, 224, 236, 240, 260, 252, 312, 324, 340, 404, 452, 393, 401, 256,
-      356,
-    ];
-    const defaultCourseStatus = defaultCourseIds.reduce((acc, courseId) => {
-      acc[courseId] = true;
-      return acc;
-    }, {});
-    setCourseStatus(defaultCourseStatus);
-  };
+
 
   return (
     <div className="page">
       <Header
         uncheckAllCheckboxes={uncheckAllCheckboxes}
-        setFreshman2={setFreshman2}
-        setSophmore1={setSophmore1}
-        setSophmore2={setSophmore2}
-        setjunior1={setJunior1}
-        setJunior2={setJunior2}
-        setSenior1={setSenior1}
-        setSenior2={setSenior2}
+        setPreset={setPreset}
         handleHideCheckedCourses={handleHideCheckedCourses}
         categories={selectedCategories}
         handleCategoryChange={handleCategoryChange}

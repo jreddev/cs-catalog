@@ -7,10 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   background-color: #ffffff;
   color: #232323;
-  padding: 0;
   padding-top: 20px;
 }
 
@@ -146,4 +144,28 @@
 
 .logo-and-title > * {
   margin-right: 30px; /* Adjust this value to your preference */
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+.preset-drawer {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.custom-select {
+  color: #008bdf;
+  border: 1px solid #008bdf;
+  border-radius: 8px;
+  padding-left: 8px;
+  background-color: white;
+  height: 30px;
+}
+
+.custom-select:hover {
+  background-color: #f3f8ff;
 }
