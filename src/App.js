@@ -27,6 +27,7 @@ const Header = ({
   handleHideCheckedCourses,
   categories,
   handleCategoryChange,
+  checkedCoursesHidden,
 }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -56,7 +57,9 @@ const Header = ({
               padding: "2px 5px",
             }}
           >
-            Toggle Completed
+            {checkedCoursesHidden
+              ? "Show Completed Classes"
+              : "Hide Completed Classes"}
           </Button>
           <button className="menu-icon" onClick={toggleDrawer}>
             &#9776;
@@ -174,7 +177,7 @@ const App = () => {
 
   useEffect(() => {
     applyCategoryFilter();
-  }, [selectedCategories]);
+  }, [selectedCategories, checkedCoursesHidden, courseStatus]);
 
   const applyCategoryFilter = () => {
     setFilteredCourses(
@@ -185,6 +188,15 @@ const App = () => {
         );
       })
     );
+    if (checkedCoursesHidden) {
+      setFilteredCourses(
+        filteredCourses.filter(
+          (course) =>
+            courseStatus[course.course_id] === undefined ||
+            courseStatus[course.course_id] === false
+        )
+      );
+    }
   };
 
   const handleCategoryChange = (category) => {
@@ -198,17 +210,6 @@ const App = () => {
   };
 
   const handleHideCheckedCourses = () => {
-    if (checkedCoursesHidden) {
-      applyCategoryFilter();
-    } else {
-      setFilteredCourses(
-        filteredCourses.filter(
-          (course) =>
-            courseStatus[course.course_id] === undefined ||
-            courseStatus[course.course_id] === false
-        )
-      );
-    }
     setCheckedCoursesHidden(!checkedCoursesHidden);
   };
 
@@ -306,6 +307,7 @@ const App = () => {
         handleHideCheckedCourses={handleHideCheckedCourses}
         categories={selectedCategories}
         handleCategoryChange={handleCategoryChange}
+        checkedCoursesHidden={checkedCoursesHidden}
       />
       <Table style={{ width: "95%", margin: "0 auto" }}>
         <TableHead className="sticky-header">
